@@ -6,10 +6,6 @@ package calculator;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author edangulo
- */
 public class History {
     
     private ArrayList<Operation> operations;
@@ -25,5 +21,5 @@ public class History {
     public ArrayList<Operation> getOperations() {
         return operations;
     }
-    
 }
+

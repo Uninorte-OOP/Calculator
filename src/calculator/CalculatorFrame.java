@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author edangulo
  */
 public class CalculatorFrame extends javax.swing.JFrame {
-    
+
     private History history;
 
     /**
@@ -214,13 +214,13 @@ public class CalculatorFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             Calculator calculator = new Calculator();
-            
+
             double number1 = Double.parseDouble(jTextField1.getText());
             double number2 = Double.parseDouble(jTextField2.getText());
             double result = calculator.add(number1, number2);
-            
+
             this.history.addOperation(new Operation(number1, number2, "+", result));
-            
+
             jTextField3.setText("" + result);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
@@ -231,13 +231,13 @@ public class CalculatorFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             Calculator calculator = new Calculator();
-            
+
             double number1 = Double.parseDouble(jTextField1.getText());
             double number2 = Double.parseDouble(jTextField2.getText());
             double result = calculator.subtract(number1, number2);
-            
+
             this.history.addOperation(new Operation(number1, number2, "-", result));
-            
+
             jTextField3.setText("" + result);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
@@ -248,13 +248,13 @@ public class CalculatorFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             Calculator calculator = new Calculator();
-            
+
             double number1 = Double.parseDouble(jTextField1.getText());
             double number2 = Double.parseDouble(jTextField2.getText());
             double result = calculator.multiply(number1, number2);
-            
+
             this.history.addOperation(new Operation(number1, number2, "*", result));
-            
+
             jTextField3.setText("" + result);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
@@ -265,13 +265,13 @@ public class CalculatorFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             Calculator calculator = new Calculator();
-            
+
             double number1 = Double.parseDouble(jTextField1.getText());
             double number2 = Double.parseDouble(jTextField2.getText());
             double result = calculator.divide(number1, number2);
-            
+
             this.history.addOperation(new Operation(number1, number2, "/", result));
-            
+
             jTextField3.setText("" + result);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
@@ -280,7 +280,19 @@ public class CalculatorFrame extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Not Implemented", "Error", JOptionPane.ERROR_MESSAGE);
+        try {
+            Calculator calculator = new Calculator();
+
+            double number1 = Double.parseDouble(jTextField1.getText());
+            double number2 = Double.parseDouble(jTextField2.getText());
+            double result = calculator.power(number1, number2);
+
+            this.history.addOperation(new Operation(number1, number2, "^", result));
+
+            jTextField3.setText("" + result);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -294,7 +306,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         ArrayList<Operation> operationHistory = this.history.getOperations();
         Collections.reverse(this.history.getOperations());
-        
+
         DefaultListModel model = new DefaultListModel();
         model.addAll(operationHistory);
         jList1.setModel(model);
